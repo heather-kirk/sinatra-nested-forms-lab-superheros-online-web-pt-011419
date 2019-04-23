@@ -10,6 +10,12 @@ module FormsLab
     end 
     
     post '/teams'do
-    end
-    
+      @team = Team.new(params[:team])
+      
+      params[:team][:heroes].each do |details|
+        Hero.new(details)
+      end
+      @hero = Hero.all
+      erb :'/show'
+    end 
   end 
