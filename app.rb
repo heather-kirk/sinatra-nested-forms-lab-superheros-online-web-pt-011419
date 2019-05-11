@@ -9,13 +9,13 @@ module FormsLab
       erb :new 
     end 
     
-    post '/teams'do
+    post '/teams' do
       @team = Team.new(params[:team])
       
       params[:team][:heroes].each do |details|
         Hero.new(details)
       end
       @hero = Hero.all
-      erb :'/show'
+      erb :show
     end 
   end 
